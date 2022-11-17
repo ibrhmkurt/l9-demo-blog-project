@@ -21,5 +21,7 @@ use App\Http\Controllers\Front\HomepageController;
 
 Route::controller(HomepageController::class)->group(function () {
     Route::get('/', 'index')->name('homepage');
+    Route::get('/kategori/{category}', 'category')->name('category');
     Route::get('/{category}/{slug}', 'single')->name('single');
+    
 });
