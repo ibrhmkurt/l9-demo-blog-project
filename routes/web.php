@@ -20,5 +20,6 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Front\HomepageController;
 
 Route::controller(HomepageController::class)->group(function () {
-    Route::get('/', 'index');
+    Route::get('/', 'index')->name('homepage');
+    Route::get('/{category}/{slug}', 'single')->name('single');
 });

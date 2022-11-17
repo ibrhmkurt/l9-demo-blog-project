@@ -1,14 +1,18 @@
 @extends('front.layouts.master')
 @section('title','Anasayfa')
 @section('content')
-
+<!-- Main Content-->
+<div class="container px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+        
 <div class="col-md-9 col-xl-7">
     @foreach ($articles as $article)
                     <!-- Post preview-->
                     <div class="position-relative">
                     <div class="post-preview">
-                        <a href="post.html">
+                        <a href="{{route('single',[$article->getCategory->slug,$article->slug])}}">
                             <h2 class="post-title">{{$article->title}}</h2>
+                            <img src="{{$article->image}}" alt="">
                             <h3 class="post-subtitle">{{str_limit($article->content,100)}}</h3>
                         </a>
                         <p class="post-meta">
@@ -25,6 +29,9 @@
     @endforeach
                     {{-- <!-- Pager-->
                     <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="#!">Older Posts →</a></div>--}}
-                </div> 
+                </div>
+
                 @include('front.widgets.categoryWidget')
+            </div>
+        </div>
 @endsection
