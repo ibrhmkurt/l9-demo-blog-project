@@ -50,4 +50,8 @@ class HomepageController extends Controller
 
         return view('front.page',$data);
     }
+
+    public function contact(){
+        return "contact page";
+    }
 }
