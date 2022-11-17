@@ -24,5 +24,5 @@ Route::controller(HomepageController::class)->group(function () {
     Route::get('/sayfa', 'index');
     Route::get('/kategori/{category}', 'category')->name('category');
     Route::get('/{category}/{slug}', 'single')->name('single');
-    
+    Route::get('/{sayfa}','page')->name('page');
 });
