@@ -5,11 +5,13 @@ namespace App\Http\Controllers\Front;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Validator;
+
 //models
 use App\Models\Category;
 use App\Models\Article;
 use App\Models\Page;
-
+use App\Models\Contact;
 class HomepageController extends Controller
 {
     //tüm viewlere pages data sını yollar önemli!!
@@ -52,6 +54,30 @@ class HomepageController extends Controller
     }
 
     public function contact(){
-        return "contact page";
+        return view('front.contact');
+    }
+
+    public function contactpost(Request $request){
+        
+        $validator = Validator::make($request->post(), [
+            'name'=>'required|min:5',
+            'email'=>'required|email',
+            'topic'=>'required',
+            'messeage'=>'required|min:10'
+        ]);
+
+        if($validator->fails()){
+            return redirect()->route('contact')->withErrors($validator)->withInput();
+        }
+        
+
+        $contact = new Contact;
+        $contact->name=$request->name;
+        $contact->email=$request->email;
+        $contact->topic=$request->topic;
+        $contact->messeage=$request->messeage;
+        $contact->save();
+        return redirect()->route('contact')->with('success','Mesajınız bize iletildi. Teşekkür ederiz!');
+
     }
 }

@@ -1196,6 +1196,65 @@
             "install-path": "../hamcrest/hamcrest-php"
         },
         {
+            "name": "herkod/laravel-tr",
+            "version": "v2.0.2",
+            "version_normalized": "2.0.2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/herkod/laravel-tr.git",
+                "reference": "c4540b7f4c8316dbc9d294bdfb8585d1b906fc05"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/herkod/laravel-tr/zipball/c4540b7f4c8316dbc9d294bdfb8585d1b906fc05",
+                "reference": "c4540b7f4c8316dbc9d294bdfb8585d1b906fc05",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "^6.0||^7.0||^8.0||^9.0"
+            },
+            "time": "2022-03-07T15:31:09+00:00",
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Herkod\\AppServiceProvider"
+                    ]
+                }
+            },
+            "installation-source": "dist",
+            "autoload": {
+                "psr-4": {
+                    "Herkod\\": "./src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Herkod",
+                    "email": "info@herkod.com"
+                }
+            ],
+            "description": "Laravel İçin Türkçe Çeviri Dosyaları",
+            "keywords": [
+                "Turkish",
+                "lang",
+                "languages",
+                "laravel",
+                "localization",
+                "translation",
+                "turkce"
+            ],
+            "support": {
+                "issues": "https://github.com/herkod/laravel-tr/issues",
+                "source": "https://github.com/herkod/laravel-tr/tree/v2.0.2"
+            },
+            "install-path": "../herkod/laravel-tr"
+        },
+        {
             "name": "laravel/framework",
             "version": "v9.40.1",
             "version_normalized": "9.40.1.0",

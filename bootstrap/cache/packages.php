@@ -1,4 +1,11 @@
 <?php return array (
+  'herkod/laravel-tr' => 
+  array (
+    'providers' => 
+    array (
+      0 => 'Herkod\\AppServiceProvider',
+    ),
+  ),
   'laravel/sail' => 
   array (
     'providers' => 

@@ -24,6 +24,7 @@ Route::controller(HomepageController::class)->group(function () {
     Route::get('/sayfa', 'index');
     Route::get('/kategori/{category}', 'category')->name('category');
     Route::get('/contact','contact')->name('contact');
+    Route::post('/contact','contactpost')->name('contact.post');
     Route::get('/{category}/{slug}', 'single')->name('single');
     Route::get('/{sayfa}','page')->name('page');
     
