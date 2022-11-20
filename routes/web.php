@@ -4,13 +4,30 @@ use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------
-| Web Routes
+| Back Routes
 |--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
+*/
+
+use App\Http\Controllers\Back\AuthController;
+
+Route::controller(AuthController::class)->group(function(){
+    Route::get('admin/login','login')->name('admin.login');
+    
+});
+
+use App\Http\Controllers\Back\DashboardController;
+
+Route::controller(DashboardController::class)->group(function(){
+    Route::get('admin/panel','index')->name('admin.dashboard');
+    
+});
+
+
+
+/*
+|--------------------------------------------------------------------------
+| Front Routes
+|--------------------------------------------------------------------------
 */
 
 // Route::get('/', function () {
@@ -29,3 +46,5 @@ Route::controller(HomepageController::class)->group(function () {
     Route::get('/{sayfa}','page')->name('page');
     
 });
+
+
