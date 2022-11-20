@@ -11,14 +11,16 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Back\AuthController;
 
 Route::controller(AuthController::class)->group(function(){
-    Route::get('admin/giris','login')->name('admin.login');
-    Route::post('admin/login','loginPost')->name('admin.login.post');
-    Route::get('admin/logout', 'logout')->name('admin.logout');
+    Route::prefix('admin')->name('admin.')->group(function(){
+        Route::get('giris','login')->middleware('isLogin')->name('login');
+        Route::post('login','loginPost')->middleware('isLogin')->name('login.post');
+        Route::get('logout', 'logout')->middleware('isAdmin')->name('logout');
+    });
 });
 
 use App\Http\Controllers\Back\DashboardController;
 
-Route::controller(DashboardController::class)->group(function(){
+Route::controller(DashboardController::class)->middleware('isAdmin')->group(function(){
     Route::get('admin/panel','index')->name('admin.dashboard');
     
 });
