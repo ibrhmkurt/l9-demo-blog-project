@@ -13,6 +13,7 @@ use App\Http\Controllers\Back\AuthController;
 Route::controller(AuthController::class)->group(function(){
     Route::get('admin/giris','login')->name('admin.login');
     Route::post('admin/login','loginPost')->name('admin.login.post');
+    Route::get('admin/logout', 'logout')->name('admin.logout');
 });
 
 use App\Http\Controllers\Back\DashboardController;
