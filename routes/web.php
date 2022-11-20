@@ -11,8 +11,8 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Back\AuthController;
 
 Route::controller(AuthController::class)->group(function(){
-    Route::get('admin/login','login')->name('admin.login');
-    
+    Route::get('admin/giris','login')->name('admin.login');
+    Route::post('admin/login','loginPost')->name('admin.login.post');
 });
 
 use App\Http\Controllers\Back\DashboardController;
