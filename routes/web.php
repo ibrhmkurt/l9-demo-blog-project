@@ -25,6 +25,15 @@ Route::controller(DashboardController::class)->middleware('isAdmin')->group(func
     
 });
 
+use App\Http\Controllers\Back\ArticleController;
+
+Route::controller(ArticleController::class)->group(function(){
+    Route::prefix('admin')->name('admin.')->group(function(){
+        Route::resource('makaleler', ArticleController::class);
+    });
+});
+
+
 
 
 /*
