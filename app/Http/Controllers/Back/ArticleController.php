@@ -60,6 +60,8 @@ class ArticleController extends Controller
 
         $article->save();
 
+        toastr()->success('Başarılı','Makale başarıyla oluşturuldu.');
+
         return redirect()->route('admin.makaleler.index');
     }
 
