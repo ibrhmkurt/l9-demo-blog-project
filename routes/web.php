@@ -29,8 +29,12 @@ use App\Http\Controllers\Back\ArticleController;
 
 Route::controller(ArticleController::class)->group(function(){
     Route::prefix('admin')->name('admin.')->group(function(){
+        Route::get('makaleler/silinenler', 'trashed')->name('trashed.article');
+        Route::get('makaleler/recover/{id}', 'recover')->name('recover.article');
         Route::resource('makaleler', ArticleController::class);
         Route::get('switch', 'switch')->name('switch');
+        Route::get('delete/{id}', 'delete')->name('delete');
+        Route::get('harddelete/{id}', 'hardDelete')->name('harddelete');
     });
 });
 
@@ -59,5 +63,8 @@ Route::controller(HomepageController::class)->group(function () {
     Route::get('/{sayfa}','page')->name('page');
     
 });
+
+
+
 
 
