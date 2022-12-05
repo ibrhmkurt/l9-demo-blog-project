@@ -167,5 +167,6 @@ class ArticleController extends Controller
         toastr()->success('Makale tamamen silindi');
         return redirect()->back();
     }
+    
 }
 
