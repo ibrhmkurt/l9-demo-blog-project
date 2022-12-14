@@ -45,6 +45,8 @@ Route::controller(CategoryController::class)->group(function(){
         Route::get('kategoriler', 'index')->name('category.index');
         Route::get('kategori/status', 'switch')->name('category.switch');
         Route::post('kategoriler/create', 'create')->name('category.create');
+        Route::post('kategoriler/update', 'update')->name('category.update');
+        Route::get('kategori/getData', 'getData')->name('category.getdata');
     });
 });
 
