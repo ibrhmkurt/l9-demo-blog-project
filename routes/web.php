@@ -38,6 +38,16 @@ Route::controller(ArticleController::class)->group(function(){
     });
 });
 
+use App\Http\Controllers\Back\CategoryController;
+
+Route::controller(CategoryController::class)->group(function(){
+    Route::prefix('admin')->name('admin.')->group(function(){
+        Route::get('kategoriler', 'index')->name('category.index');
+        Route::get('kategori/status', 'switch')->name('category.switch');
+        Route::post('kategoriler/create', 'create')->name('category.create');
+    });
+});
+
 
 
 
