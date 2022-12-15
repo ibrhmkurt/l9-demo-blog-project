@@ -51,8 +51,14 @@ Route::controller(CategoryController::class)->group(function(){
     });
 });
 
+use App\Http\Controllers\Back\PageController;
 
-
+Route::controller(PageController::class)->group(function(){
+    Route::prefix('admin')->name('admin.')->group(function(){
+        Route::get('sayfalar', 'index')->name('page.index');
+        Route::get('sayfalar/status', 'switch')->name('page.switch');
+    });
+});
 
 /*
 |--------------------------------------------------------------------------
