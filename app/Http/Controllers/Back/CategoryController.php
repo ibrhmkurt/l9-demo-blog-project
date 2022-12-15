@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
 use App\Models\Category;
+use App\Models\Article;
 
 class CategoryController extends Controller
 {
@@ -41,6 +42,24 @@ class CategoryController extends Controller
         $category->slug=Str::slug($request->slug,'-');
         $category->save();
         toastr()->success('Kategori başarıyla güncellendi');
+        return redirect()->back();
+    }
+
+    public function delete(Request $request){
+        $category=Category::findOrFail($request->id);
+        if($category->id==1){
+            toastr()->error('Bu kategori silinemez');
+            return redirect()->back();
+        }
+        $message='';
+        $count=$category->articleCount();
+        if($count>0){
+            Article::where('category_id', $category->id)->update(['category_id'=>1]);
+            $defaultCategory=Category::find(1);
+            $message= 'Bu kategoriye ait '.$count.' makale '.$defaultCategory->name.' kategorisine taşındı.';
+        }
+        $category->delete();
+        toastr()->success($message.' Kategori başarıyla silindi.');
         return redirect()->back();
     }
 
