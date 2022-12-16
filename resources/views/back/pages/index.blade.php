@@ -1,10 +1,10 @@
 @extends('back.layouts.master')
-@section('title','Tüm Makaleler')
+@section('title','Tüm Sayfalar')
 @section('content')
                         <!-- DataTales Example -->
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold float-right text-primary"><strong>{{$pages->count()}}</strong> makale bulundu.
+                                <h6 class="m-0 font-weight-bold float-right text-primary"><strong>{{$pages->count()}}</strong> sayfa bulundu.
                                 </h6>
 
                             </div>
@@ -39,10 +39,10 @@
                                                     <a href="{{ route('page',$page->slug) }}" target="_blank" title="Görüntüle" class="btn btn-sm btn-success">
                                                         <i class="fa fa-eye"></i>
                                                     </a>
-                                                    <a href="" title="Düzenle" class="btn btn-sm btn-primary">
+                                                    <a href="{{ route('admin.page.edit', $page->id) }}" title="Düzenle" class="btn btn-sm btn-primary">
                                                         <i class="fa fa-pen"></i>
                                                     </a>
-                                                    <a href="" title="Sil" class="btn btn-sm btn-danger">
+                                                    <a href="{{ route('admin.page.delete', $page->id) }}" title="Sil" class="btn btn-sm btn-danger">
                                                         <i class="fa fa-times"></i>
                                                     </a>
                                                 </td>

@@ -1,10 +1,10 @@
 @extends('back.layouts.master')
-@section('title','Makale Oluştur')
+@section('title','Sayfa Oluştur')
 @section('content')
                         <!-- DataTales Example -->
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold mx-auto text-primary" style="width: 200px;">Makale Oluştur</h6>
+                                <h6 class="m-0 font-weight-bold mx-auto text-primary" style="width: 200px;">Sayfa Oluştur</h6>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
@@ -14,32 +14,23 @@
                                             @foreach ($errors->all() as $error)
                                             <li>
                                                 {{$error}}
-                                            </li> 
+ trashed                                           </li> 
                                             @endforeach
                                         </ul>
                                         
                                     </div>
                                         
                                     @endif
-                                    <form method="post" action="{{route('admin.makaleler.store')}}" enctype="multipart/form-data">
+                                    <form method="post" action="{{ route('admin.page.post') }}" enctype="multipart/form-data">
                                         @csrf
                                         <div class="form-row">
-                                        <div class="col-6 form-group">
-                                            <label for="">Makale Başlığı</label>
+                                        <div class="col-12 form-group">
+                                            <label for="">Sayfa Başlığı</label>
                                             <input type="text" name="title" class="form-control" required>
-                                        </div>
-                                        <div class="col-6 form-group">
-                                            <label for="">Kategori</label>
-                                            <select name="category" id="" class="form-control" required>
-                                                <option value="">Bir Kategori Seçiniz..</option>
-                                                @foreach ($categories as $category)
-                                                    <option value="{{$category->id}}">{{$category->name}}</option>    
-                                                @endforeach
-                                            </select>
                                         </div>
                                         </div>
                                         <div class="form-group">
-                                            <label for="">Makale Resmi</label>
+                                            <label for="">Sayfa Resmi</label>
                                             <input type="file" name="image" class="form-control" required>
                                         </div>
                                        
@@ -49,7 +40,7 @@
                                             </div>
                                         
                                         <div class="form-group">
-                                            <button type="submit" class="btn btn-primary btn-block">Makaleyi Oluştur</button>
+                                            <button type="submit" class="btn btn-primary btn-block">Sayfayı Oluştur</button>
                                         </div>
                                     </form>
                                 </div>

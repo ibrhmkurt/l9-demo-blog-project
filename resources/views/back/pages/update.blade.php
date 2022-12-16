@@ -1,10 +1,10 @@
 @extends('back.layouts.master')
-@section('title',$article->title.' makalesini güncelle')
+@section('title',$page->title.' sayfasını güncelle')
 @section('content')
                         <!-- DataTales Example -->
                         <div class="card shadow mb-4">
                             <div class="card-header py-3">
-                                <h6 class="m-0 font-weight-bold text-primary" >{{ $article->title.' makalesini güncelle' }}</h6>
+                                <h6 class="m-0 font-weight-bold text-primary" >{{ $page->title.' makalesini güncelle' }}</h6>
                             </div>
                             <div class="card-body">
                                 <div class="table-responsive">
@@ -21,34 +21,26 @@
                                     </div>
                                         
                                     @endif
-                                    <form method="post" action="{{route('admin.makaleler.update',$article->id)}}" enctype="multipart/form-data">
-                                        @method('PUT')
+                                    <form method="post" action="{{ route('admin.page.edit.post', $page->id) }}" enctype="multipart/form-data">
+                                        
                                         @csrf
                                         <div class="form-row">
                                         <div class="col-6 form-group">
-                                            <label for="">Makale Başlığı</label>
-                                            <input type="text" name="title" class="form-control" value="{{ $article->title }}" required>
+                                            <label for="">Sayfa Başlığı</label>
+                                            <input type="text" name="title" class="form-control" value="{{ $page->title }}" required>
                                         </div>
-                                        <div class="col-6 form-group">
-                                            <label for="">Kategori</label>
-                                            <select name="category" id="" class="form-control" required>
-                                                <option value="">Bir Kategori Seçiniz..</option>
-                                                @foreach ($categories as $category)
-                                                    <option @if($article->category_id==$category->id) selected @endif value="{{$category->id}}">{{$category->name}}</option>    
-                                                @endforeach
-                                            </select>
-                                        </div>
+
                                         </div>
                                         <div class="form-group">
-                                            <label for="">Makale Resmi</label>
+                                            <label for="">Sayfa Resmi</label>
                                             <br>
-                                            <img src="{{ asset($article->image) }}" alt="" class="img-thumbnail rounded" width="400">
+                                            <img src="{{ asset($page->image) }}" alt="" class="img-thumbnail rounded" width="400">
                                             <input type="file" name="image" class="form-control" >
                                         </div>
                                        
                                             <div class="form-group">
                                                 <label for="">İçerik</label>
-                                                <textarea name="content" id="editor" class="form-control" placeholder="İçerik giriniz..">{!! $article->content !!}</textarea>
+                                                <textarea name="content" id="editor" class="form-control" placeholder="İçerik giriniz..">{!! $page->content !!}</textarea>
                                             </div>
                                         
                                         <div class="form-group">

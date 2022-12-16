@@ -56,7 +56,12 @@ use App\Http\Controllers\Back\PageController;
 Route::controller(PageController::class)->group(function(){
     Route::prefix('admin')->name('admin.')->group(function(){
         Route::get('sayfalar', 'index')->name('page.index');
-        Route::get('sayfalar/status', 'switch')->name('page.switch');
+        Route::get('sayfalar/create', 'create')->name('page.create');
+        Route::post('sayfalar/olustur', 'post')->name('page.post');
+        Route::get('sayfalar/guncelle/{id}', 'update')->name('page.edit');
+        Route::post('sayfalar/guncelle/{id}', 'updatePost')->name('page.edit.post');
+        Route::get('sayfa/status', 'switch')->name('page.switch');
+        Route::get('sayfa/sil/{id}', 'delete')->name('page.delete');
     });
 });
 
