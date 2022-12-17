@@ -8,6 +8,10 @@ use Illuminate\Support\Facades\Route;
 |--------------------------------------------------------------------------
 */
 
+Route::get('site-bakımda',function(){
+    return view('front.offline');
+});
+
 use App\Http\Controllers\Back\AuthController;
 
 Route::controller(AuthController::class)->group(function(){
@@ -63,6 +67,15 @@ Route::controller(PageController::class)->group(function(){
         Route::get('sayfa/status', 'switch')->name('page.switch');
         Route::get('sayfa/sil/{id}', 'delete')->name('page.delete');
         Route::get('sayfa/siralama', 'orders')->name('page.orders');
+    });
+});
+
+use App\Http\Controllers\Back\ConfigController;
+
+Route::controller(ConfigController::class)->group(function(){
+    Route::prefix('admin')->name('admin.')->group(function(){
+        Route::get('ayarlar', 'index')->name('config.index');
+        Route::post('ayarlar/update', 'update')->name('config.update');
     });
 });
 

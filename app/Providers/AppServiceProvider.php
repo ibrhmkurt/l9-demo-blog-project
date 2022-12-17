@@ -6,6 +6,8 @@ use Illuminate\Support\ServiceProvider;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Route;
 
+use App\Models\Config;
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -27,6 +29,8 @@ class AppServiceProvider extends ServiceProvider
     {
         Paginator::useBootstrapFive();
     
+        view()->share('config',Config::find(1));
+
         Route::resourceVerbs([
             'create'=>'olustur',
             'edit'=>'güncelle',

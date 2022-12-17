@@ -14,12 +14,17 @@ use App\Models\Category;
 use App\Models\Article;
 use App\Models\Page;
 use App\Models\Contact;
+use App\Models\Config;
 class HomepageController extends Controller
 {
     //tüm viewlere pages data sını yollar önemli!!
     public function __construct(){
+        if(Config::find(1)->active==0){
+            return redirect()->to('site-bakımda')->send();
+        }
         view()->share('pages',Page::orderBy('order','ASC')->get());
         view()->share('categories',Category::inRandomOrder()->get());
+        
     }
 
     public function index(){
