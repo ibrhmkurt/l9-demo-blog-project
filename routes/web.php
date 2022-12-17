@@ -62,6 +62,7 @@ Route::controller(PageController::class)->group(function(){
         Route::post('sayfalar/guncelle/{id}', 'updatePost')->name('page.edit.post');
         Route::get('sayfa/status', 'switch')->name('page.switch');
         Route::get('sayfa/sil/{id}', 'delete')->name('page.delete');
+        Route::get('sayfa/siralama', 'orders')->name('page.orders');
     });
 });
 
