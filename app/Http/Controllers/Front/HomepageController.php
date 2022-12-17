@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Front;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
+use Mail;
+
 use Illuminate\Support\Facades\Validator;
 
 //models
@@ -70,13 +72,23 @@ class HomepageController extends Controller
             return redirect()->route('contact')->withErrors($validator)->withInput();
         }
         
+        Mail::raw(' Mesajı Gönderen: '.$request->name.'
+                     Mesajı Gönderen Mail: '.$request->email.'
+                     Mesajın Konusu: '.$request->topic.'
+                     Mesaj: '.$request->messeage.'
+                     Mesaj Gönderilme Tarihi: '.now().'', function($message) use($request){
+            $message->from('rootkodbi@gmail.com', 'Blog Sitesi');
+            $message->to('rootkodbi@gmail.com');
+            $message->subject($request->name. ' iletişimden mesaj gönderdi!');
 
-        $contact = new Contact;
-        $contact->name=$request->name;
-        $contact->email=$request->email;
-        $contact->topic=$request->topic;
-        $contact->messeage=$request->messeage;
-        $contact->save();
+        });
+
+        // $contact = new Contact;
+        // $contact->name=$request->name;
+        // $contact->email=$request->email;
+        // $contact->topic=$request->topic;
+        // $contact->messeage=$request->messeage;bi@
+        // $contact->save();
         return redirect()->route('contact')->with('success','Mesajınız bize iletildi. Teşekkür ederiz!');
 
     }
