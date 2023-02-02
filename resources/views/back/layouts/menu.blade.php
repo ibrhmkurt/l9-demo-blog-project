@@ -8,7 +8,7 @@
 
             <!-- Sidebar - Brand -->
             <a class="sidebar-brand d-flex align-items-center justify-content-center" href="{{ route('admin.dashboard') }}">
-                
+
                 <div class="sidebar-brand-text mx-3">BLOG PANEL</div>
             </a>
 
@@ -30,13 +30,15 @@
                 İçerik Yönetimi
             </div>
 
-                        <!-- Nav Item - Utilities Collapse Menu -->
+
+
             <li class="nav-item">
                 <a class="nav-link" @if(Request::segment(2)=="kategoriler") style="color:white !important;" @endif href="{{ route('admin.category.index') }}">
                     <i class="fas fa-fw fa-list" @if(Request::segment(2)=="kategoriler") style="color:white !important;" @endif></i>
                     <span>Kategoriler</span>
                 </a>
             </li>
+
 
 
             <!-- Nav Item - Pages Collapse Menu -->
@@ -56,7 +58,6 @@
             </li>
 
 
-            
             <li class="nav-item">
                 <a class="nav-link @if(Request::segment(2)=="sayfalar") active @else collapse @endif" href="#" data-toggle="collapse" data-target="#collapsePage"
                     aria-expanded="true" aria-controls="collapsePage">
@@ -92,7 +93,7 @@
                 <button class="rounded-circle border-0" id="sidebarToggle"></button>
             </div>
 
-            
+
 
         </ul>
         <!-- End of Sidebar -->
@@ -115,10 +116,10 @@
                     <!-- Topbar Navbar -->
                     <ul class="navbar-nav ml-auto">
 
-                    
 
-                            
-                       
+
+
+
 
                         <div class="topbar-divider d-none d-sm-block"></div>
 

@@ -1,18 +1,18 @@
 </div>
 <!-- End of Main Content -->
-<!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; Blog Admin Paneli {{date('Y')}}</span>
-                    </div>
-                </div>
-            </footer>
-            <!-- End of Footer -->
+
 
         </div>
         <!-- End of Content Wrapper -->
-
+<!-- Footer -->
+<footer class="sticky-footer bg-white">
+    <div class="container my-auto">
+        <div class="copyright text-center my-auto">
+            <span>Copyright &copy; Blog Admin Paneli {{date('Y')}}</span>
+        </div>
+    </div>
+</footer>
+<!-- End of Footer -->
     </div>
     <!-- End of Page Wrapper -->
 
@@ -60,7 +60,7 @@
 
         <!-- Page level plugins -->
     <script src="{{asset('back/')}}/vendor/datatables/jquery.dataTables.min.js"></script>
-    <script src="{{asset('back/')}}/vendor/datatables/dataTables.bootstrap4.min.js"></script>    
+    <script src="{{asset('back/')}}/vendor/datatables/dataTables.bootstrap4.min.js"></script>
         <!-- Page level custom scripts -->
     <script src="{{asset('back/')}}/js/demo/datatables-demo.js"></script>
 

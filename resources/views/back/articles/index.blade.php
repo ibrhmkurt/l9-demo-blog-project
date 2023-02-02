@@ -16,7 +16,7 @@
                                             <tr>
                                                 <th>Fotoğraf</th>
                                                 <th>Başlık</th>
-                                                <th>Kategori</th>                   
+                                                <th>Kategori</th>
                                                 <th>Hit</th>
                                                 <th>Oluşturulma Tarihi</th>
                                                 <th>Durum</th>
@@ -56,19 +56,20 @@
                         </div>
 @endsection
 @section('css')
-<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
+ <link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">
 @endsection
 @section('js')
 <script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>
 
 <script>
-$(function() {
+$(function()
+{
     $('.switch').change(function() {
         id = $(this)[0].getAttribute('article-id');
         state = $(this).prop('checked');
-        
+
         $.get("{{ route('admin.switch') }}", {id:id, state:state}, function(data, status){});
     })
-  }) 
-  </script>
+})
+</script>
 @endsection

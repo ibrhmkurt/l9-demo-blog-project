@@ -24,7 +24,6 @@ class HomepageController extends Controller
         }
         view()->share('pages',Page::where('status',1)->orderBy('order','ASC')->get());
         view()->share('categories',Category::where('status',1)->inRandomOrder()->get());
-        
     }
 
     public function index(){
@@ -32,8 +31,8 @@ class HomepageController extends Controller
             $query->where('status',1);
         })->orderBy('created_at','DESC')->paginate(5);
         $data['articles']->withPath(url('/sayfa'));
-        
-    
+
+
         return view('front.homepage',$data);
     }
 
@@ -42,7 +41,7 @@ class HomepageController extends Controller
         $article=Article::whereSlug($slug)->whereCategoryId($category->id)->first() ?? abort(403, 'Böyle bir yazı bulunamadı');
         $article->increment('hit');
         $data['article']=$article;
-        
+
         return view('front.single',$data);
     }
 
@@ -51,7 +50,7 @@ class HomepageController extends Controller
         $data['category']=$category;
         $data['articles']=Article::where('category_id', $category->id)->where('status',1)->orderBy('created_at','DESC')->paginate(4);
 
-        
+
         return view('front.category',$data);
     }
 
@@ -67,7 +66,7 @@ class HomepageController extends Controller
     }
 
     public function contactpost(Request $request){
-        
+
         $validator = Validator::make($request->post(), [
             'name'=>'required|min:5',
             'email'=>'required|email',
@@ -78,7 +77,7 @@ class HomepageController extends Controller
         if($validator->fails()){
             return redirect()->route('contact')->withErrors($validator)->withInput();
         }
-        
+
         Mail::raw(' Mesajı Gönderen: '.$request->name.'
                      Mesajı Gönderen Mail: '.$request->email.'
                      Mesajın Konusu: '.$request->topic.'
