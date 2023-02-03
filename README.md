@@ -7,7 +7,7 @@
 <li>PHP min v.8</li>
 <li>DB server (tavsiye edilen:MySQL)</li>
 <li>composer min v.2</li>
-<li>nodejs min v.14</li>
+<li>nodejs min v.18</li>
 </ol>
 
 <h3>Projeyi localde ayağa kaldırmak için izlenmesi gereken yol</h3>
