@@ -26,7 +26,7 @@ use App\Http\Controllers\Back\DashboardController;
 
 Route::controller(DashboardController::class)->middleware('isAdmin')->group(function(){
     Route::get('admin/panel','index')->name('admin.dashboard');
-    
+
 });
 
 use App\Http\Controllers\Back\ArticleController;
@@ -94,12 +94,11 @@ use App\Http\Controllers\Front\HomepageController;
 Route::controller(HomepageController::class)->group(function () {
     Route::get('/', 'index')->name('homepage');
     Route::get('/sayfa', 'index');
-    Route::get('/kategori/{category}', 'category')->name('category');
     Route::get('/contact','contact')->name('contact');
     Route::post('/contact','contactpost')->name('contact.post');
-    Route::get('/{category}/{slug}', 'single')->name('single');
+    Route::get('/kategori/{category}', 'category')->name('category');
     Route::get('/{sayfa}','page')->name('page');
-    
+    Route::get('/{category}/{slug}', 'single')->name('single');
 });
 
 

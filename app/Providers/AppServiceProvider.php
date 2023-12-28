@@ -7,7 +7,7 @@ use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\Route;
 
 use App\Models\Config;
-
+use Illuminate\Support\Facades\Cache;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -28,14 +28,17 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+
         Paginator::useBootstrapFive();
-    
-        view()->share('config',Config::find(1));
-        
+
+        view()->share('config',Cache::get(Config::CONFIG_KEY));
+
 
         Route::resourceVerbs([
             'create'=>'olustur',
             'edit'=>'güncelle',
         ]);
+
+
     }
 }

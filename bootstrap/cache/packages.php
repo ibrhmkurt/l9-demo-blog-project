@@ -50,13 +50,13 @@
   ),
   'php-flasher/flasher-laravel' => 
   array (
-    'providers' => 
-    array (
-      0 => 'Flasher\\Laravel\\FlasherServiceProvider',
-    ),
     'aliases' => 
     array (
       'Flasher' => 'Flasher\\Laravel\\Facade\\Flasher',
+    ),
+    'providers' => 
+    array (
+      0 => 'Flasher\\Laravel\\FlasherServiceProvider',
     ),
   ),
   'spatie/laravel-ignition' => 
@@ -72,13 +72,13 @@
   ),
   'yoeunes/toastr' => 
   array (
-    'providers' => 
-    array (
-      0 => 'Yoeunes\\Toastr\\ToastrServiceProvider',
-    ),
     'aliases' => 
     array (
       'Toastr' => 'Yoeunes\\Toastr\\Facades\\Toastr',
+    ),
+    'providers' => 
+    array (
+      0 => 'Yoeunes\\Toastr\\ToastrServiceProvider',
     ),
   ),
 );

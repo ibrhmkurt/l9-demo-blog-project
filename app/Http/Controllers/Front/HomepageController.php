@@ -15,6 +15,8 @@ use App\Models\Article;
 use App\Models\Page;
 use App\Models\Contact;
 use App\Models\Config;
+use Illuminate\Support\Facades\Cache;
+
 class HomepageController extends Controller
 {
     //tüm viewlere pages data sını yollar önemli!!
@@ -24,9 +26,12 @@ class HomepageController extends Controller
         }
         view()->share('pages',Page::where('status',1)->orderBy('order','ASC')->get());
         view()->share('categories',Category::where('status',1)->inRandomOrder()->get());
+
     }
 
     public function index(){
+
+
         $data['articles'] = Article::with('getCategory')->where('status',1)->whereHas('getCategory',function($query){
             $query->where('status',1);
         })->orderBy('created_at','DESC')->paginate(5);
