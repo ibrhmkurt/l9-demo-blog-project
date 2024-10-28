@@ -39,6 +39,6 @@ class AppServiceProvider extends ServiceProvider
             'edit'=>'güncelle',
         ]);
 
-
+    
     }
 }

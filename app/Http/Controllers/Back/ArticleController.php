@@ -20,7 +20,7 @@ class ArticleController extends Controller
      */
     public function index()
     {
-        $articles=Article::orderBy('created_at','ASC')->get();
+        $articles=Article::orderBy('created_at','DESC')->get();
         return view('back.articles.index',compact('articles'));
     }
 

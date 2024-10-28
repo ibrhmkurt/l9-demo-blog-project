@@ -6,6 +6,7 @@
     <div class="row gx-4 gx-lg-5 justify-content-center">
         
 <div class="col-md-9 col-xl-7">
+    @include('front.widgets.lastNewsSlider')
     @include('front.widgets.articlesList')
                     {{-- <!-- Pager-->
                     <div class="d-flex justify-content-end mb-4"><a class="btn btn-primary text-uppercase" href="#!">Older Posts →</a></div>--}}
